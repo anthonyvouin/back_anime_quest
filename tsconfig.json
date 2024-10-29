@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipDefaultLibCheck": true,
     "outDir": "./dist",
     "rootDir": ".",
-    "target": "ES2016",
+    "target": "ESNext",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "strict": true

@@ -1,5 +1,5 @@
 import { stringifyQuery } from "ufo";
-import { AppDataSource } from "../data-source";
+import { AppDataSource } from "../data-source.js";
 
 
 // Seeder pour remplir la db

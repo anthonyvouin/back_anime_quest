@@ -1,10 +1,10 @@
 import Fastify from 'fastify'
 import cors from '@fastify/cors'
 import 'dotenv/config'
-import movieRoutes from './src/routes/movies';
-import categoryRoutes from './src/routes/categories';
-import seederRoutes from './src/routes/seeder';
-import { AppDataSource } from './src/data-source';
+import movieRoutes from './src/routes/movies.js';
+import categoryRoutes from './src/routes/categories.js';
+import seederRoutes from './src/routes/seeder.js';
+import { AppDataSource } from './src/data-source.js';
 
 
 const startServer = async () => {
