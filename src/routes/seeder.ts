@@ -3,5 +3,5 @@ import { seedDatabase } from '../controllers/seederController.js';
 
 
 export default async function seederRoutes(fastify: FastifyInstance) {
-	fastify.get('/seed', seedDatabase);
+	fastify.get('api/seed', seedDatabase);
 }
