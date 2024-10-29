@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify';
-import { getMovies, getMovieById, createMovie, updateMovie, deleteMovie } from '../controllers/moviesController';
+import { getMovies, getMovieById, createMovie, updateMovie, deleteMovie } from '../controllers/moviesController.js';
 
 export default async function movieRoutes(fastify: FastifyInstance) {
 	fastify.get('/api/movies', getMovies);

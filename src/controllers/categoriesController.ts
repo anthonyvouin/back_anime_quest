@@ -1,6 +1,6 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
-import { AppDataSource } from '../data-source';
-import { Category } from '../entity/Categories';
+import { AppDataSource } from '../data-source.js';
+import { Category } from '../entity/Categories.js';
 
 // Récupérer toutes les catégories
 export async function getCategories(request: FastifyRequest, reply: FastifyReply) {

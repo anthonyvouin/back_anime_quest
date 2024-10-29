@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify';
-import { getCategories, getCategoryById, getMoviesByCategory, createCategory } from '../controllers/categoriesController';
+import { getCategories, getCategoryById, getMoviesByCategory, createCategory } from '../controllers/categoriesController.js';
 
 export default async function categoryRoutes(fastify: FastifyInstance) {
 	fastify.get('/api/categories', getCategories);

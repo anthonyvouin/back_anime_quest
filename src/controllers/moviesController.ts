@@ -1,8 +1,9 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
-import { AppDataSource } from '../data-source';
 import { In } from 'typeorm';
-import { Category } from '../entity/Categories';
-import { Movie } from '../entity/Movie';
+import { AppDataSource } from '../data-source.js';
+import { Category } from '../entity/Categories.js';
+import { Movie } from '../entity/Movie.js';
+
 
 // Get tout les films
 export async function getMovies(request: FastifyRequest, reply: FastifyReply) {
