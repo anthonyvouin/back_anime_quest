@@ -26,6 +26,8 @@
       "start": "ts-node src/index.ts",
       "dev": "npx nodemon",
       "typeorm": "typeorm-ts-node-commonjs",
-       "vercel-build": "npm run build"
+       "vercel-build": "npm run build",
+       "build":"npx tsc"
+       
    }
 }
