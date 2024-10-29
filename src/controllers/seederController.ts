@@ -1,5 +1,6 @@
 import { stringifyQuery } from "ufo";
-import { AppDataSource } from "../data-source.js";
+import { AppDataSource } from "../data-source";
+
 
 // Seeder pour remplir la db
 //? Normalement, on devrait l'utiliser qu'une seule fois sauf si on get tous les jours les updates

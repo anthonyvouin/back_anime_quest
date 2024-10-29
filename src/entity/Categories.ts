@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from "typeorm"
-import { Movie } from "./Movie.js"
+import { Movie } from "./Movie"
+
 
 @Entity()
 export class Category {
