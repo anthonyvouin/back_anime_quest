@@ -44,6 +44,7 @@ export async function seedDatabase() {
 	const categoriesEntities = await AppDataSource.getRepository('Category').find();
 
 	const movies = dataMovies.results.map((movie: any) => {
+		console.log(movie)
 		return {
 			original_name: movie.original_name,
 			overview: movie.overview,
@@ -54,8 +55,8 @@ export async function seedDatabase() {
 			vote_count: movie.vote_count,
 			popularity: movie.popularity,
 			adult: movie.adult,
-			backdrop_path: movie.backdrop_path,
-			poster_path: movie.poster_path,
+			backdrop_path: `https://image.tmdb.org/t/p/w200${movie.backdrop_path}`,
+			poster_path: `https://image.tmdb.org/t/p/w200${movie.poster_path}`,
 			categories: categoriesEntities.filter((category: any) => movie.genre_ids.includes(category.id)),
 		}
 	});
