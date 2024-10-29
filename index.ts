@@ -22,7 +22,7 @@ const startServer = async () => {
 	await fastify.register(seederRoutes)
 
 	try {
-		await fastify.listen({ port: 3001 });
+		await fastify.listen({ port: 3000 });
 		await AppDataSource.initialize();
 	} catch (err) {
 		fastify.log.error(err);
