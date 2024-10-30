@@ -5,6 +5,5 @@ build/
 tmp/
 temp/
 .env
-database.sqlite
 .vercel
 dist

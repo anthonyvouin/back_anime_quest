@@ -1,15 +1,16 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
-import { User } from "./entity/User.js"
 import { Movie } from "./entity/Movie.js"
 import { Category } from "./entity/Categories.js"
 
+const db = process.env.DATABASE
+
 export const AppDataSource = new DataSource({
-	type: "sqlite",
-	database: "database.sqlite",
-	synchronize: true,
-	logging: false,
-	entities: [User, Movie, Category],
-	migrations: [],
-	subscribers: [],
-})
+    type: "postgres",
+    url: db,
+    synchronize: true,
+    logging: false,
+    entities: [Movie, Category],
+    migrations: [],
+    subscribers: [],
+});
