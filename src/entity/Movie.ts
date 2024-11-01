@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, OneToMany} from "typeorm";
 import { Category } from "./Categories.js";
+import {Comments} from "./Comments";
 
 @Entity()
 export class Movie {
@@ -42,4 +43,7 @@ export class Movie {
 	@ManyToMany(() => Category, category => category.movies)
 	@JoinTable()
 	categories!: Category[]
+
+	@OneToMany(() => Comments, comment => comment.movie)
+	comments!: Comment[];
 }
