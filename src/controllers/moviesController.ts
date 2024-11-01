@@ -1,5 +1,5 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
-import { In } from 'typeorm';
+import {ILike, In} from 'typeorm';
 import { AppDataSource } from '../data-source.js';
 import { Category } from '../entity/Categories.js';
 import { Movie } from '../entity/Movie.js';
@@ -73,7 +73,7 @@ export async function searchMovie(request: FastifyRequest, reply: FastifyReply) 
 		// https://github.com/typeorm/typeorm/blob/master/docs/find-options.md#advanced-options
 		const movies:Movie[] = await AppDataSource.getRepository(Movie).find({
 			where: {
-				original_name: Like(`%${title}%`)
+				original_name: ILike(`%${title}%`)
 			}
 		});
 
