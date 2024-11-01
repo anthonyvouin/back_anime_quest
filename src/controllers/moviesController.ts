@@ -3,6 +3,7 @@ import { In } from 'typeorm';
 import { AppDataSource } from '../data-source.js';
 import { Category } from '../entity/Categories.js';
 import { Movie } from '../entity/Movie.js';
+import { Like } from "typeorm"
 
 
 // Get tout les films
@@ -57,5 +58,32 @@ export async function deleteMovie(request: FastifyRequest, reply: FastifyReply) 
 		return reply.send({ message: 'Film supprimé avec succès', status: 200 });
 	} else {
 		return reply.status(404).send({ message: 'Film non trouvé' });
+	}
+}
+
+// Recherche de films par titre
+export async function searchMovie(request: FastifyRequest, reply: FastifyReply) {
+	try {
+		const { title } = request.query as { title: string };
+
+		if (!title) {
+			return reply.status(400).send({ error: 'Title query parameter is required.' });
+		}
+
+		// https://github.com/typeorm/typeorm/blob/master/docs/find-options.md#advanced-options
+		const movies:Movie[] = await AppDataSource.getRepository(Movie).find({
+			where: {
+				original_name: Like(`%${title}%`)
+			}
+		});
+
+		if (movies.length === 0) {
+			return reply.status(404).send({ message: 'No movies found with that title.' });
+		}
+
+		return reply.send(movies);
+	} catch (error) {
+		console.error('Error searching for movie:', error);
+		return reply.status(500).send({ error: 'Internal Server Error', details: (error as Error).message });
 	}
 }
