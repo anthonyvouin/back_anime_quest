@@ -5,7 +5,7 @@ import movieRoutes from './src/routes/movies.js';
 import categoryRoutes from './src/routes/categories.js';
 import seederRoutes from './src/routes/seeder.js';
 import {AppDataSource} from './src/data-source.js';
-import commentsRoutes from "./src/routes/comments";
+import commentsRoutes from "./src/routes/comments.js";
 
 
 const startServer = async (): Promise<void> => {

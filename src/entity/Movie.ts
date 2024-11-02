@@ -1,6 +1,6 @@
 import {Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, OneToMany} from "typeorm";
 import { Category } from "./Categories.js";
-import {Comments} from "./Comments";
+import {Comments} from "./Comments.js";
 
 @Entity()
 export class Movie {
@@ -40,10 +40,10 @@ export class Movie {
 	@Column('varchar')
 	poster_path!: string
 
-	@ManyToMany(() => Category, category => category.movies)
+	@ManyToMany(() => Category, (category) => category.movies)
 	@JoinTable()
-	categories!: Category[]
+	categories!: Promise<Category[]>;
 
-	@OneToMany(() => Comments, comment => comment.movie)
-	comments!: Comment[];
+	@OneToMany(() => Comments, (comment) => comment.movie, { cascade: true })
+	comments!: Promise<Comments[]>;
 }

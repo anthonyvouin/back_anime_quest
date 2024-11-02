@@ -3,8 +3,6 @@ import {ILike, In} from 'typeorm';
 import { AppDataSource } from '../data-source.js';
 import { Category } from '../entity/Categories.js';
 import { Movie } from '../entity/Movie.js';
-import { Like } from "typeorm"
-
 
 // Get tout les films
 export async function getMovies(request: FastifyRequest, reply: FastifyReply) {

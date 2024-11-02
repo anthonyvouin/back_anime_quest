@@ -1,5 +1,5 @@
 import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
-import {Movie} from "./Movie";
+import { Movie } from "./Movie.js";
 
 @Entity()
 export class Comments {
@@ -12,6 +12,6 @@ export class Comments {
     @Column('text')
     comment!: string
 
-    @ManyToOne(() => Movie, movie => movie.comments, { onDelete: 'CASCADE' })
-    movie!: Movie;
+    @ManyToOne(() => Movie, (movie) => movie.comments, { onDelete: 'CASCADE' })
+    movie!: Promise<Movie>;
 }

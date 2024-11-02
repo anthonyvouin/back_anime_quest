@@ -1,6 +1,6 @@
 import {FastifyReply, FastifyRequest} from "fastify";
-import {AppDataSource} from "../data-source";
-import {Movie} from "../entity/Movie";
+import {AppDataSource} from "../data-source.js";
+import {Movie} from "../entity/Movie.js";
 
 export async function createComment(request: FastifyRequest, reply: FastifyReply) {
     try {
