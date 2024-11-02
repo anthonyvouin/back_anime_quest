@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToMany} from "typeorm"
+import {Entity, PrimaryGeneratedColumn, Column, ManyToMany, Relation} from "typeorm"
 import { Movie } from "./Movie.js";
 
 @Entity()
@@ -13,5 +13,5 @@ export class Category {
     description: string | undefined
 
     @ManyToMany(() => Movie, (movie) => movie.categories)
-    movies!: Promise<Movie[]|undefined>;
+    movies!: Relation<Movie[]|undefined>;
 }
